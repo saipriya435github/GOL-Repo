@@ -19,17 +19,17 @@
   - name: launching ec2 instance
     ec2:
       instance_type: t2.micro
-      key_name: my-ohio-key
-      image: ami-0189ac12b7b1cd7ff
+      key_name: Aws-key
+      image: ami-08f598b26c50684ec
       region: us-east-2
-      group: launch-wizard-7
+      group: launch-wizard-2
       count: 1
       wait: yes
       wait_timeout: 500
       instance_tags: 
           name: webserver
       assign_public_ip: yes
-      vpc_subnet_id: subnet-07f5cb10f32c39eda
+      vpc_subnet_id: subnet-07fb57af037bdc439
     register: ec2  
   - name: Add Instance IP into in-memory inventory file not into hosts file
     add_host: 
