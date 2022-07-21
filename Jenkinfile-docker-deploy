@@ -62,8 +62,8 @@ stages {
     stage('Build and Push Docker Image') {
       steps {
         sh label: '', script: '''sudo docker build -t gameoflife-image:$BUILD_NUMBER .
-                                 sudo docker tag gameoflife-image:$BUILD_NUMBER docker.io/raknas000/gameoflife-image:$BUILD_NUMBER
-                                 sudo docker push docker.io/raknas000/gameoflife-image:$BUILD_NUMBER'''
+                                 sudo docker tag gameoflife-image:$BUILD_NUMBER docker.io/saipriya9630/gameoflife-image:$BUILD_NUMBER
+                                 sudo docker push docker.io/saipriya9630/gameoflife-image:$BUILD_NUMBER'''
                                  
       }
  }
@@ -109,7 +109,7 @@ post {
             archiveArtifacts 'gameoflife-web/target/*.war'
         }
         failure {
-            mail to:"raknas000@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
+            mail to:"saipriya1896@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
         }
     }       
 }
